@@ -351,8 +351,6 @@ ul {
     padding: 10px 10px 0; /* padding:5px 10px 0; */
 }
 
-
-
 .blog-wrapper .post .recent-post .read-more p span {
     padding: 2px 4px;
     margin: 0 3px;
@@ -365,8 +363,6 @@ ul {
 .blog-wrapper .post .recent-post .read-more p span i {
     transform: rotate(-45deg);
 }
-
-
 
 /* Aside / Sidebar */
 .blog-wrapper .sidebar {
@@ -443,9 +439,6 @@ ul {
     .blog-wrapper .post .recent-post {
         flex: 1 1 100%;
         max-width: 100%;
-        
-        
-        
     }
 }
 
@@ -647,10 +640,10 @@ ul {
 } 
 .event-wrapper .recent-event {
     background: var(--white);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ddd;
-    width: 250px;
+    /* border-radius: 8px; */
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    /* border: 1px solid #ddd; */
+    width: 417px;
     gap: 25px;
     overflow: hidden;
     position: relative;
@@ -659,6 +652,26 @@ ul {
 
 .event-wrapper .recent-event:hover {
     transform: scale(1.05);
+    cursor: pointer;
+}
+
+.event-wrapper .recent-event .event-image {
+  position: relative;
+  margin-bottom: -6px;
+}
+
+
+
+.event-wrapper .recent-event .event-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    
 }
 
 .event-wrapper .recent-event .event-image img {
@@ -666,15 +679,23 @@ ul {
     height: 250px;
     object-fit: cover;
     cursor: pointer;
+    /* position: relative;
+    margin-bottom: -6px; */
 }
 
 .event-wrapper .recent-event .event-info {
-    padding: 15px;
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    right: 15px;
+    color: white;
+    z-index: 2;
+    /* padding: 15px; */
 }
 
 .event-wrapper .recent-event .event-info .date {
     font-size: 14px;
-    color: #888;
+    color: white;
     margin-bottom: 10px;
 }
 
@@ -682,10 +703,49 @@ ul {
     font-size: 18px;
     margin: 0 0 10px;
 }
+
 .event-wrapper .recent-event .event-info .read-more:hover {
-    text-decoration: underline  ;
+    /* text-decoration: underline  ; */
+    color: var(--teal);
+    cursor: pointer;
 }
 
+.event-wrapper .recent-event .event-info .read-more p span i  {
+    transform: rotate(-45deg);
+    font-size: 10px;
+    background-color: black;
+    border-radius: 100%;
+    padding: 1px 2px;
+}
+
+/* Responsive for Event */
+@media screen and (max-width:1200px) {
+    .event-wrapper .recent-event {
+        flex: 1 1 30%;
+        max-width: 50%;
+        height: 250px;
+        object-fit: cover;
+
+    }
+}
+
+@media screen and (max-width:968px) {
+    .event-wrapper .recent-event {
+        flex: 1 1 100%;
+        max-width: 70%;
+        height: 250px;
+    }
+    
+}
+
+@media screen and (max-width:678px) {
+    .event-wrapper .recent-event {
+        flex: 1 1 100%;
+        max-width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+}
 
 
 /*--- Gallery ---*/
