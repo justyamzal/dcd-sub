@@ -264,7 +264,8 @@ ul {
     display: flex;
     gap: 16px;
     padding: 0 30px;
-    margin-bottom: 100px; /* margin-bottom: 30px; */
+    margin-bottom: 100px;
+    /* margin-bottom: 30px; */
 }
 
 .blog-wrapper .post {
@@ -320,7 +321,8 @@ ul {
     font-size: .9rem;
     color: #555;
     line-height: 1.4;
-    height: 7.5rem; /* height: 5.5rem; */
+    height: 7.5rem;
+    /* height: 5.5rem; */
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -329,7 +331,7 @@ ul {
     padding-top: 10px;
 }
 
-.blog-wrapper .post .recent-post .post-title h4  {
+.blog-wrapper .post .recent-post .post-title h4 {
 
     /* padding: 0 10px;
     font-size: 1rem;
@@ -338,17 +340,22 @@ ul {
     text-overflow: ellipsis; */
 
     padding: 0 10px;
-    font-size: 1rem; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-    display: -webkit-box; /* Required for line clamping */
-    -webkit-box-orient: vertical; /* Set the orientation to vertical */
-    -webkit-line-clamp: 2; /* Display exactly 2 lines of text */
-    line-clamp: 2; /* Modern browsers */
+    font-size: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    /* Required for line clamping */
+    -webkit-box-orient: vertical;
+    /* Set the orientation to vertical */
+    -webkit-line-clamp: 2;
+    /* Display exactly 2 lines of text */
+    line-clamp: 2;
+    /* Modern browsers */
 }
 
 .blog-wrapper .post .recent-post .read-more p {
-    padding: 10px 10px 0; /* padding:5px 10px 0; */
+    padding: 10px 10px 0;
+    /* padding:5px 10px 0; */
 }
 
 .blog-wrapper .post .recent-post .read-more p span {
@@ -443,84 +450,176 @@ ul {
 }
 
 
-
-/*-- Destinasi  ---*/
-/* .swiper-container {
-    width: 1000%;
+/*--- Destination Container ---*/
+.destination-container {
+    font-family: var(--Opensans);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
     max-width: 1200px;
-    overflow: hidden;
+    min-height: 60vh;
+    margin: 0 auto;
     position: relative;
-
 }
 
-.swiper-slide {
+/* Destination Wrapper */
+.destination-container .destination-wrapper {
+    width: 100%;
+    position: relative; /*! Required to position buttons */
+}
+
+/* Swiper Container */
+.destination-container .swiper {
+    width: 100%;
+    padding: 20px 0; /*! Add space for navigation buttons */
+}
+
+/* Swiper Slide */
+.destination-container .swiper-slide {
     display: flex;
     justify-content: center;
-    align-items: center;
-
-    margin: 10px auto;
 }
 
-.card {
-    width: 200px;
-    height: 250px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.destination-container .card-link {
+    background: #fff;
+    box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.05);
     overflow: hidden;
-    position: relative;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.card img {
-    width: 100%;
-    height: 60%;
-    object-fit: cover;
-}
-
-.card-content {
-    padding: 10px;
     text-align: center;
+    width: 240px;
+    height: 350px;
+    position: relative;
 }
 
-.card-button {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9rem;
+.destination-container .card-image {
+    width: 100%;
+    height: calc(100% - 50px);
+    /* Leave space for the badge and button */
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-.badge {
-    position: static;
-    background-color: #ff5722;
-    color: #fff;
+.destination-container .badge {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: #dde4ff;
+    color: #5372f0;
     padding: 5px 10px;
-    border-radius: 12px;
-    font-size: 0.8rem;
+    font-size: 14px;
+    border-radius: 8px;
     font-weight: bold;
-    text-transform: uppercase;
-    margin: 5px auto 5px auto;
-} */
+}
 
-/* Responsive */
+
+/* Responsive Breakthrough Badge */
 @media (max-width: 768px) {
-    .badge {
-        position: absolute;
+    .card-list .card-link .badge {
         top: 10px;
-        left: 10px;
-        margin: 0;
+        bottom: auto;
     }
 }
 
-.swiper-pagination-bullet {
-    background-color: #007bff;
+.destination-container .card-link .read-more {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    /* background: #5372f0; */
+    color: white;
+    font-size: 14px;
+    border-radius: 20px;
+    border: 2px solid var(--navy);
+    display: none;
+    opacity: 0;
 }
+
+.destination-container .card-link:hover .read-more {
+    display: block;
+    opacity: 1;
+    color: #fff;
+    background: var(--navy);
+    cursor: pointer;
+}
+
+/* Navigation Buttons */
+.swiper-button-prev,
+.swiper-button-next {
+    color: #5372f0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.swiper-button-prev {
+    left: -60px;
+    /* Space to the left */
+}
+
+.swiper-button-next {
+    right: -60px;
+    /* Space to the right */
+}
+
+/* Pagination */
+.swiper-pagination {
+    position: relative;
+    /* Keeps it positioned within the Swiper container */
+    margin-top: 20px;
+    /* Add some spacing above the pagination */
+    margin-bottom: 10px;
+    /* Adjust this value to move it further from the bottom */
+    display: flex;
+    justify-content: center;
+    /* Center-align the bullets */
+}
+
+
+/* Style Swiper Pagination Bullets */
+.swiper-pagination-bullet {
+    width: 12px;
+    /* Bullet size */
+    height: 12px;
+    background-color: #5372f0;
+    /* Bullet color */
+    opacity: 0.5;
+    /* Slight transparency */
+    margin: 0 5px;
+    /* Add spacing between bullets */
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    /* Fully opaque for the active bullet */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .swiper-button-prev {
+        left: -40px;
+        /* Adjust for smaller screens */
+    }
+
+    .swiper-button-next {
+        right: -40px;
+    }
+}
+
+
+
 
 /* .destination-container {
     font-family: var(--Opensans);
@@ -636,8 +735,9 @@ ul {
     padding: 0px 30px;
     margin-bottom: 30px;
     flex-wrap: wrap;
-    justify-content: center;  
-} 
+    justify-content: center;
+}
+
 .event-wrapper .recent-event {
     background: var(--white);
     /* border-radius: 8px; */
@@ -656,8 +756,8 @@ ul {
 }
 
 .event-wrapper .recent-event .event-image {
-  position: relative;
-  margin-bottom: -6px;
+    position: relative;
+    margin-bottom: -6px;
 }
 
 
@@ -671,7 +771,7 @@ ul {
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
     z-index: 1;
-    
+
 }
 
 .event-wrapper .recent-event .event-image img {
@@ -710,7 +810,7 @@ ul {
     cursor: pointer;
 }
 
-.event-wrapper .recent-event .event-info .read-more p span i  {
+.event-wrapper .recent-event .event-info .read-more p span i {
     transform: rotate(-45deg);
     font-size: 10px;
     background-color: black;
@@ -735,7 +835,7 @@ ul {
         max-width: 70%;
         height: 250px;
     }
-    
+
 }
 
 @media screen and (max-width:678px) {
@@ -752,19 +852,19 @@ ul {
 .gallery-container {
     display: flex;
     flex-direction: column;
-} 
+}
 
 .gallery-container .gallery-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 100px;
-    gap:10px;
+    gap: 10px;
     /* max-width: calc(210px * 5 + 16px * 4 + 40px); */
     margin: 10px 50px;
     padding: 0 48px 48px;
     box-sizing: border-box;
-    
+
 }
 
 .gallery-container .gallery-wrapper .gallery-item {
@@ -772,7 +872,7 @@ ul {
     max-width: calc(20% - 16px);
     width: 100px;
     height: 150px;
-    /* position: relative; */
+    /* position: relative;*/
     /* padding: 8px; */
     border-radius: 8px;
     overflow: hidden;
@@ -785,14 +885,13 @@ ul {
 }
 
 
-
 .gallery-container .gallery-wrapper .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     /* border-radius: 8px; */
-    
 }
+
 
 /* Modal Popup */
 .modal-overlay {
@@ -835,8 +934,6 @@ ul {
     margin-top: 10px;
 }
 
-
-
 .modal-overlay .modal-content .close-modal {
     position: absolute;
     top: 4px;
@@ -845,10 +942,10 @@ ul {
     font-weight: bold;
     cursor: pointer;
     color: #333;
-} 
+}
 
 .modal-overlay .modal-content .close-modal:hover {
-    color: red ;
+    color: red;
 }
 
 
@@ -863,7 +960,7 @@ ul {
 @media screen and (max-width: 768px) {
     .gallery-container .gallery-wrapper .gallery-item {
         flex: 0 1 calc(50% - 16px);
-        max-width: calc(50% - 16px );
+        max-width: calc(50% - 16px);
     }
 }
 
@@ -934,7 +1031,7 @@ footer .subscribe button {
 }
 
 footer .subscribe button:hover {
-    background-color:#A75CAD;
+    background-color: #A75CAD;
 }
 
 footer .footer-social .social-icons {
@@ -944,7 +1041,7 @@ footer .footer-social .social-icons {
 
 footer .footer-social .social-icons a {
     font-size: 20px;
-    margin: 10px; 
+    margin: 10px;
     transition: color 0.3s ease;
     color: var(--white);
 }

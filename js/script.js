@@ -41,9 +41,9 @@ document.addEventListener("DOMContentLoaded", function() {
 //     },
 //   });
 
-const swiper = new Swiper(".swiper-container", {
+const swiper = new Swiper(".swiper", {
     slidesPerView: 4,
-    spaceBetween: 20,
+    spaceBetween: 5,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
@@ -56,7 +56,6 @@ const swiper = new Swiper(".swiper-container", {
       0: {
         slidesPerView: 1,
       },
-
       468: {
         slidesPerView: 2,
       },
