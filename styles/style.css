@@ -24,6 +24,7 @@
     --purple: #7E5CAD;
     --teal: #72BAA9;
     --sage: #D5E7B5;
+    --lightblue: #dde4ff;
 
     --green: #347928;
     --mint: #C0EBA6;
@@ -62,7 +63,7 @@ ul {
 /* Logo */
 .nav .nav-menu .nav-brand a {
 
-    color: var(--white);
+    color: var(--teal);
     font-size: 1.6rem;
     padding: 1rem 0;
     display: block;
@@ -166,6 +167,7 @@ ul {
     font-family: var(--Roboto);
     font-size: 2em;
     text-align: center;
+    color: --;
 }
 
 .banner p {
@@ -450,7 +452,7 @@ ul {
 }
 
 
-/*--- Destination Container ---*/
+/*--- DESTINATION CONTAINER ---*/
 .destination-container {
     font-family: var(--Opensans);
     display: flex;
@@ -483,43 +485,38 @@ ul {
 }
 
 .destination-container .card-link {
+    position: relative;
+    width: 240px;
+    height: 350px;
     background: #fff;
     box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     text-align: center;
-    width: 240px;
-    height: 350px;
-    position: relative;
+
 }
 
 .destination-container .card-image {
     width: 100%;
-    height: calc(100% - 50px);
-    /* Leave space for the badge and button */
+    /* height: calc(100% - 50px); */
+    height: 100%;
     object-fit: cover;
     border-radius: 10px;
 }
 
-.destination-container .badge {
+.destination-container .card-link .badge {
     position: absolute;
-    bottom: 10px;
+    bottom: 10px; /* Default position */
     left: 10px;
-    background: #dde4ff;
-    color: #5372f0;
+    background: var(--lightblue);
+    color: var(--navy);
     padding: 5px 10px;
     font-size: 14px;
-    border-radius: 8px;
     font-weight: bold;
+    border-radius: 8px;
 }
 
 
-/* Responsive Breakthrough Badge */
-@media (max-width: 768px) {
-    .card-list .card-link .badge {
-        top: 10px;
-        bottom: auto;
-    }
-}
+
 
 .destination-container .card-link .read-more {
     position: absolute;
@@ -539,15 +536,14 @@ ul {
 .destination-container .card-link:hover .read-more {
     display: block;
     opacity: 1;
-    color: #fff;
-    background: var(--navy);
+    color: var(--white);
+    background: var(--purple);
     cursor: pointer;
 }
 
 /* Navigation Buttons */
 .swiper-button-prev,
 .swiper-button-next {
-    color: #5372f0;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -564,164 +560,71 @@ ul {
 }
 
 .swiper-button-prev {
-    left: -60px;
-    /* Space to the left */
+    left: -40px;
 }
 
 .swiper-button-next {
-    right: -60px;
-    /* Space to the right */
+    right: -40px; 
 }
 
 /* Pagination */
 .swiper-pagination {
-    position: relative;
-    /* Keeps it positioned within the Swiper container */
+    position: relative; /* Keeps it positioned within the Swiper container */
     margin-top: 20px;
-    /* Add some spacing above the pagination */
-    margin-bottom: 10px;
-    /* Adjust this value to move it further from the bottom */
+    margin-bottom: 10px; 
     display: flex;
     justify-content: center;
-    /* Center-align the bullets */
 }
 
 
 /* Style Swiper Pagination Bullets */
 .swiper-pagination-bullet {
     width: 12px;
-    /* Bullet size */
     height: 12px;
     background-color: #5372f0;
-    /* Bullet color */
     opacity: 0.5;
-    /* Slight transparency */
     margin: 0 5px;
-    /* Add spacing between bullets */
 }
 
 .swiper-pagination-bullet-active {
     opacity: 1;
-    /* Fully opaque for the active bullet */
 }
 
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
+/* Responsive Breakthrough Badge */
+@media screen and (max-width: 992px) {
+    .destination-container .card-link .badge {
+        top: 10px;
+        left: 10px;
+        bottom: auto; /* Reset bottom */
+        font-size: 12px; 
+    }
+}
+
+
+/* Responsive Breakthrough Adjustments */
+@media (max-width: 992px) {
     .swiper-button-prev {
-        left: -40px;
-        /* Adjust for smaller screens */
+        left: 1px;
     }
 
     .swiper-button-next {
-        right: -40px;
+        right: 1px;
+    }
+}
+
+@media (max-width: 768px) {
+    .swiper-button-prev {
+        left: 10px;
+    }
+
+    .swiper-button-next {
+        right: 10px;
     }
 }
 
 
-
-
-/* .destination-container {
-    font-family: var(--Opensans);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    min-height: 80vh;
-    
- }
-.card-wrapper {
-    max-width: 90%;
-    margin: 30px 60px 35px;
-    min-height: 70vh;
-    overflow: hidden;
-
-    display: flex;  
-    flex-direction: column;
-    padding: 16px;
-}
-
-.card-wrapper .card-list .card-item .card-link {
-    user-select: none;
-    display: block;
-    background: var(--white);
-    border-radius: 12px;
-    border: 2px solid transparent;
-    box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.05);
-    transition: 0.2s ease;
-}
-
-.card-wrapper .card-item .card-link::after {
-    cursor: grabbing;
-}
-
-.card-wrapper .card-list .card-item .card-link:hover {
-    border-color: var(--purple);
-}
-
-.card-wrapper .card-list .card-link .card-image {
-    width: 100%;
-    aspect-ratio: 3/4.3;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-
-.card-wrapper .card-list .card-item .card-link .badge {
-    color:  var(--white);
-    padding: 8px 16px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    margin: 16px 0 1px;
-    background: var(--purple);
-    width: fit-content;
-    border-radius: 50px;
-    position: absolute;
-}    
-
-.card-wrapper .card-list .card-item .card-link .card-button {
-    height: 32px;
-    width: 32px;
-    color: var(--navy);
-    margin: 10px 0 5px;
-    background: none;
-    cursor: pointer;
-    border: 2px solid var(--navy);
-    position: absolute;
-    left: 26%;
-    top: 75%;
-    width: 50%;
-    opacity: 1;
-    border-radius: 20px;
-}
-
-.card-wrapper .card-list .card-item .card-link:hover .card-button {
-    color: var(--white);
-    background-color: var(--purple);
-    opacity: 1;
-} 
-
-.card-wrapper .swiper-pagination-bullet {
-    height: 13px;
-    width: 13px;
-    opacity: 0.5;
-    background: var(--navy);
-} 
-
-.card-wrapper .swiper-pagination-bullet-active {
-    color: var(--purple);
-}
-
-.card-wrapper .swiper-slide-button {
-    color: var(--teal);
-}
-
-.card-wrapper .swiper-pagination {
-    padding-bottom: .9vw;
-}
-*/
-
-/*--- Upcoming Event  ---*/
+/*--- UPCOMING EVENT  ---*/
 .event-container {
     display: flex;
     flex-direction: column;
