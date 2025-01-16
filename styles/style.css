@@ -146,6 +146,8 @@ ul {
 
 /*--- BANNER ---*/
 .banner {
+    /* max-width: 1200px; */
+    margin: 0 auto;
     background-image: url(../assets/images/bromo.jpg);
     background-color: rgba(0, 0, 0, 0.24);
     height: 70vh;
@@ -167,7 +169,7 @@ ul {
     font-family: var(--Roboto);
     font-size: 2em;
     text-align: center;
-    color: --;
+    /* color: --; */
 }
 
 .banner p {
@@ -187,16 +189,48 @@ ul {
     cursor: pointer;
     background: var(--navy);
     color: var(--white);
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .banner .btn-banner:hover {
     background: transparent;
     border: 1px solid var(--navy);
     color: var(--white);
+    transform: scale(1.05); /* Efek zoom */
 }
 
 /* Responsive Breapoint for Banner */
+@media screen and (min-width: 1400px) {
+    .banner h1 {
+        font-size: 3rem;
+    }
+
+    .banner p {
+        font-size: 1.3rem;
+    }
+
+    .banner .btn-banner {
+        padding: 1.5rem 5rem;
+        font-size: 1.3rem;
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+    .banner h1 {
+        font-size: 2.5rem;
+    }
+
+    .banner p {
+        font-size: 1.2rem;
+    }
+
+    .banner .btn-banner {
+        padding: 1.2rem 4rem;
+        font-size: 1.2rem;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .banner {
         height: 60vh;
@@ -220,11 +254,12 @@ ul {
 @media screen and (max-width: 480px) {
     .banner {
         height: 50vh;
-        padding: 30px 10px;
+        padding: 20px 10px;
     }
 
     .banner h1 {
         font-size: 1.2rem;
+        padding: 50px 0 0;
     }
 
     .banner p {
@@ -260,7 +295,14 @@ ul {
     background-color: var(--navy);
 }
 
-/*--- Blogs ---*/
+/*--- BLOG CONTAINER ---*/
+.blog-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+
 .blog-container .blog-wrapper {
     width: 100%;
     display: flex;
@@ -590,20 +632,18 @@ ul {
     opacity: 1;
 }
 
+/* Responsive Breakthough Destination */
 
-/* Responsive Breakthrough Badge */
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 992px) 
+{   
+    /* Badge */
     .destination-container .card-link .badge {
         top: 10px;
         left: 10px;
         bottom: auto; /* Reset bottom */
         font-size: 12px; 
     }
-}
-
-
-/* Responsive Breakthrough Adjustments */
-@media (max-width: 992px) {
+    
     .swiper-button-prev {
         left: 1px;
     }
@@ -611,15 +651,28 @@ ul {
     .swiper-button-next {
         right: 1px;
     }
+
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .swiper-button-prev {
         left: 10px;
     }
 
     .swiper-button-next {
         right: 10px;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        background: none;
+    }
+}
+
+@media screen and (max-width: 768px) { 
+    .swiper-button-prev,
+    .swiper-button-next {
+        background: none;
     }
 }
 
@@ -663,8 +716,6 @@ ul {
     margin-bottom: -6px;
 }
 
-
-
 .event-wrapper .recent-event .event-image::before {
     content: "";
     position: absolute;
@@ -674,7 +725,6 @@ ul {
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
     z-index: 1;
-
 }
 
 .event-wrapper .recent-event .event-image img {
@@ -728,7 +778,6 @@ ul {
         max-width: 50%;
         height: 250px;
         object-fit: cover;
-
     }
 }
 
@@ -738,7 +787,6 @@ ul {
         max-width: 70%;
         height: 250px;
     }
-
 }
 
 @media screen and (max-width:678px) {
@@ -750,8 +798,7 @@ ul {
     }
 }
 
-
-/*--- Gallery ---*/
+/*--- GALLERY CONTAINER ---*/
 .gallery-container {
     display: flex;
     flex-direction: column;
@@ -771,8 +818,8 @@ ul {
 }
 
 .gallery-container .gallery-wrapper .gallery-item {
-    flex: 0 1 calc(20% - 16px);
-    max-width: calc(20% - 16px);
+    flex: 1 1 250px; /* flex: 0 1 calc(20% - 16px); */
+    max-width: 250px; /* max-width: calc(20% - 16px); */
     width: 100px;
     height: 150px;
     /* position: relative;*/
@@ -787,14 +834,12 @@ ul {
     transform: scale(1.05);
 }
 
-
 .gallery-container .gallery-wrapper .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     /* border-radius: 8px; */
 }
-
 
 /* Modal Popup */
 .modal-overlay {
@@ -825,6 +870,7 @@ ul {
 
 .modal-overlay .modal-content img {
     width: 600px;
+    /* max-width: 90%; */
     height: 500px;
     object-fit: cover;
     border-radius: 10px;
@@ -851,7 +897,6 @@ ul {
     color: red;
 }
 
-
 /* Responsive Breakpoint for Gallery */
 @media screen and (max-width: 992px) {
     .gallery-container .gallery-wrapper .gallery-item {
@@ -860,7 +905,7 @@ ul {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
     .gallery-container .gallery-wrapper .gallery-item {
         flex: 0 1 calc(50% - 16px);
         max-width: calc(50% - 16px);
@@ -874,11 +919,7 @@ ul {
     }
 }
 
-
-
-
 /*--- FOOTER ---*/
-
 footer {
     background-color: var(--navy);
     color: var(--white);

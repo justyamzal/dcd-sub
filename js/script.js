@@ -69,26 +69,6 @@ const swiper = new Swiper(".swiper", {
     },
   });
 
-//--- Gallery Popup ---//
-// function showPopup (imageSrc,title,description) {
-//     const popup = document.getElementById("popup");
-//     const popupImg = document.getElementById("popup-img");
-//     const popupTitle = document.getElementById("popup-title");
-//     const popupDesc = document.getElementById("popup-desc");
-
-//     popupImg.src = imageSrc;
-//     popupTitle.textContent = title;
-//     popupDesc.textContent = description;
-    
-//     popup.style.display = "flex";
-// }
-
-// function hidePopup() {
-//     const popup = document.getElementById("popup");
-//     popup.style.display = "none";
-// }
-
-
 //--- Modal Overlay Popup ---//
 
 //Get all modal links 
