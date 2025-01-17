@@ -494,6 +494,10 @@ ul {
 }
 
 
+
+
+
+
 /*--- DESTINATION CONTAINER ---*/
 .destination-container {
     font-family: var(--Opensans);
@@ -556,8 +560,6 @@ ul {
     font-weight: bold;
     border-radius: 8px;
 }
-
-
 
 
 .destination-container .card-link .read-more {
@@ -723,7 +725,7 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 1;
 }
 
@@ -746,6 +748,8 @@ ul {
     /* padding: 15px; */
 }
 
+
+
 .event-wrapper .recent-event .event-info .date {
     font-size: 14px;
     color: white;
@@ -755,6 +759,7 @@ ul {
 .event-wrapper .recent-event .event-info h3 {
     font-size: 18px;
     margin: 0 0 10px;
+    color:#A75CAD;
 }
 
 .event-wrapper .recent-event .event-info .read-more:hover {
