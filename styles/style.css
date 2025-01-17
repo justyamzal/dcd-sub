@@ -824,7 +824,8 @@ ul {
 
 .gallery-container .gallery-wrapper .gallery-item {
     flex: 1 1 250px; /* flex: 0 1 calc(20% - 16px); */
-    max-width: 250px; /* max-width: calc(20% - 16px); */
+    /* max-width: 250px;  */
+    max-width: calc(20% - 16px);
     width: 100px;
     height: 150px;
     /* position: relative;*/
@@ -833,6 +834,8 @@ ul {
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.3s ease;
+    object-fit: cover;
+    
 }
 
 .gallery-container .gallery-wrapper .gallery-item:hover {
