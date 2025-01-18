@@ -298,8 +298,26 @@ ul {
 /*--- BLOG CONTAINER ---*/
 .blog-container {
     display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    /* flex-wrap: wrap; */
+    /* margin: 0 auto; */
+    margin-bottom: 50px; /* Add margin-bottom to create space below */
+    padding-bottom: 50px; /* Add padding-bottom to prevent collapse */
+       
+}
+
+.blog-container::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* Ensure clear on all other containers */
+.event-container, .destination-container, .gallery-container {
+    clear: both;
 }
 
 
@@ -321,15 +339,31 @@ ul {
 }
 
 .blog-container .post .recent-post {
-    flex: 1 1 calc (33.33% - 16px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 30px;
+    margin-bottom: 30px; /* Space between multiple posts */
+
+    flex: 1 1 auto calc(33.33% - 16px);
     max-width: calc(33.33% - 16px);
     background: var(--white);
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-    overflow: hidden;
+    /* overflow: hidden; */
+
+    
+
 }
+
+/* .blog-container::after {
+    content: "";
+    display: block;
+    clear: both;
+} */
 
 .blog-wrapper .post .recent-post .post-info {
     padding: 10px;
@@ -475,8 +509,16 @@ ul {
 }
 
 /* Responsive Breakpoint for Blog */
+@media screen and (max-width: 1200px) {
+    .blog-container {
+        padding: 0 15px;
+    }
+}
+
+
 @media screen and (max-width: 968px) {
     .blog-wrapper .post .recent-post {
+        width: 100%;
         flex: 1 1 (50% - 16px);
         max-width: calc(50% - 16px);
     }
@@ -493,9 +535,135 @@ ul {
     }
 }
 
+/* Ensure clear on all other containers */
+.event-container, .destination-container, .gallery-container {
+    clear: both;
+}
 
+/*--- UPCOMING EVENT  ---*/
+.event-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px; /* Ensure a margin-top to prevent overlap with blog-container */
+    padding: 20px 0;
+    box-sizing: border-box;
+}
 
+.event-wrapper {
+    width: 100%;
+    display: flex;
+    gap: 26px;
+    padding: 0px 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
 
+.event-wrapper .recent-event {
+    background: var(--white);
+    /* border-radius: 8px; */
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    /* border: 1px solid #ddd; */
+    width: 417px;
+    gap: 25px;
+    overflow: hidden;
+    position: relative;
+    transform: 0.3s ease;
+}
+
+.event-wrapper .recent-event:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.event-wrapper .recent-event .event-image {
+    position: relative;
+    margin-bottom: -6px;
+}
+
+.event-wrapper .recent-event .event-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.event-wrapper .recent-event .event-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    cursor: pointer;
+    /* position: relative;
+    margin-bottom: -6px; */
+}
+
+.event-wrapper .recent-event .event-info {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    right: 15px;
+    color: white;
+    z-index: 2;
+    /* padding: 15px; */
+}
+
+.event-wrapper .recent-event .event-info .date {
+    font-size: 14px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.event-wrapper .recent-event .event-info h3 {
+    font-size: 18px;
+    margin: 0 0 10px;
+    color:#A75CAD;
+}
+
+.event-wrapper .recent-event .event-info .read-more:hover {
+    /* text-decoration: underline  ; */
+    color: var(--teal);
+    cursor: pointer;
+}
+
+.event-wrapper .recent-event .event-info .read-more p span i {
+    transform: rotate(-45deg);
+    font-size: 10px;
+    background-color: black;
+    border-radius: 100%;
+    padding: 1px 2px;
+}
+
+/* Responsive Breakpoint for Event */
+@media screen and (max-width:1200px) {
+    .event-wrapper .recent-event {
+        flex: 1 1 30%;
+        max-width: 50%;
+        height: 250px;
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width:968px) {
+    .event-wrapper .recent-event {
+        flex: 1 1 100%;
+        max-width: 70%;
+        height: 250px;
+    }
+}
+
+@media screen and (max-width:678px) {
+    .event-wrapper .recent-event {
+        flex: 1 1 100%;
+        max-width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+}
 
 
 /*--- DESTINATION CONTAINER ---*/
@@ -510,6 +678,10 @@ ul {
     min-height: 60vh;
     margin: 0 auto;
     position: relative;
+}
+
+h2.destination {
+    margin: 24px 36px 6px;
 }
 
 /* Destination Wrapper */
@@ -679,129 +851,7 @@ ul {
 }
 
 
-/*--- UPCOMING EVENT  ---*/
-.event-container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 100px;
-}
 
-.event-wrapper {
-    width: 100%;
-    display: flex;
-    gap: 16px;
-    padding: 0px 30px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.event-wrapper .recent-event {
-    background: var(--white);
-    /* border-radius: 8px; */
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-    /* border: 1px solid #ddd; */
-    width: 417px;
-    gap: 25px;
-    overflow: hidden;
-    position: relative;
-    transform: 0.3s ease;
-}
-
-.event-wrapper .recent-event:hover {
-    transform: scale(1.05);
-    cursor: pointer;
-}
-
-.event-wrapper .recent-event .event-image {
-    position: relative;
-    margin-bottom: -6px;
-}
-
-.event-wrapper .recent-event .event-image::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 1;
-}
-
-.event-wrapper .recent-event .event-image img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    cursor: pointer;
-    /* position: relative;
-    margin-bottom: -6px; */
-}
-
-.event-wrapper .recent-event .event-info {
-    position: absolute;
-    bottom: 10px;
-    left: 15px;
-    right: 15px;
-    color: white;
-    z-index: 2;
-    /* padding: 15px; */
-}
-
-
-
-.event-wrapper .recent-event .event-info .date {
-    font-size: 14px;
-    color: white;
-    margin-bottom: 10px;
-}
-
-.event-wrapper .recent-event .event-info h3 {
-    font-size: 18px;
-    margin: 0 0 10px;
-    color:#A75CAD;
-}
-
-.event-wrapper .recent-event .event-info .read-more:hover {
-    /* text-decoration: underline  ; */
-    color: var(--teal);
-    cursor: pointer;
-}
-
-.event-wrapper .recent-event .event-info .read-more p span i {
-    transform: rotate(-45deg);
-    font-size: 10px;
-    background-color: black;
-    border-radius: 100%;
-    padding: 1px 2px;
-}
-
-/* Responsive Breakpoint for Event */
-@media screen and (max-width:1200px) {
-    .event-wrapper .recent-event {
-        flex: 1 1 30%;
-        max-width: 50%;
-        height: 250px;
-        object-fit: cover;
-    }
-}
-
-@media screen and (max-width:968px) {
-    .event-wrapper .recent-event {
-        flex: 1 1 100%;
-        max-width: 70%;
-        height: 250px;
-    }
-}
-
-@media screen and (max-width:678px) {
-    .event-wrapper .recent-event {
-        flex: 1 1 100%;
-        max-width: 100%;
-        height: 250px;
-        object-fit: cover;
-    }
-}
 
 /*--- GALLERY CONTAINER ---*/
 .gallery-container {
