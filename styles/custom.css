@@ -1,0 +1,135 @@
+/*--- GOOGLE FONTS ---*/
+/* Dancing Script */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+/* Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,800;1,300;1,400;1,800&display=swap');
+/* Play Fair */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,900;1,300;1,900&display=swap');
+/* Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/*--- ROOT ---*/
+:root {
+    
+    /* Theme Colors */
+    --white: #ffffff;
+    --navy: #474e93;
+    --purple: #7E5CAD;
+    --teal: #72BAA9;
+    --sage: #D5E7B5;
+    --lightblue: #dde4ff;
+
+    --green: #347928;
+    --mint: #C0EBA6;
+    --white2: #FFFBE6;
+    --yellow: #FCCD2A;
+    
+    /* Fonts  */
+    --Dancing: "Dancing Script", serif;
+    --Playfair: "Playfair", serif;
+    --Roboto: "Roboto", serif;
+    --Opensans: "Open Sans", serif;
+}
+
+/*--- HEADER ---*/
+/* Navbar */
+.nav {
+    background-color: var(--navy);
+    padding: 0 2rem; /*1rem = 16px*/
+    height: 0rem;
+    min-height: 10vh;
+    overflow: hidden;
+    transition: height 1s ease-in-out;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+/* Logo */
+.nav .nav-menu .nav-brand a {
+    color: var(--teal);
+    font-size: 1.6rem;
+    padding: 1rem 0;
+    display: block;
+    font-family: var(--Dancing);
+    font-weight: bolder;
+}
+
+.nav .nav-menu {
+    justify-content: space-between;
+    /* flexible-row */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* Menu List */
+.nav .nav-items  {
+    display: flex;
+    margin: 0;
+}
+
+.nav .nav-items .nav-links {
+    padding: 1.6rem;
+    font-size: 1.1rem;
+    position: relative;
+    font-family: var(--Roboto);
+}
+
+.nav .nav-items .nav-links a {
+    color: var(--white);
+}
+
+/* Toggle / Hamburger */
+.nav .toggle-collapse {
+    position: absolute;
+    top: 0%;
+    width: 90%;
+    cursor: pointer;
+    display: none;
+}
+
+.nav .toggle-collapse .toggle-icons { 
+    display: flex;
+    justify-content: flex-end;
+    padding: 1.7rem 0;
+}
+
+.nav .toggle-collapse .toggle-icons i {
+    font-size: 1.4rem;
+}
+
+.nav .nav-items ..nav-links:hover {
+    background-color: var(--purple);
+}
+
+.collapse {
+    height: 30rem;
+}
+
+/* Breakpoint Responsive Navbar */
+@media screen and (max-width:768px) {
+    .nav .nav-menu,
+    .nav .nav-items {
+        flex-direction: column;
+    }
+
+    .nav .toggle-collapse {
+        display: initial;
+    }
+}

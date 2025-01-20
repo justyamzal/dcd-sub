@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- SwipperJS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/custom.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <!-- Navbar -->
+        <nav class="nav">
+            <div class="nav-menu">
+                <!-- Logo -->
+                <div class="nav-brand">
+                    <a href="">Explore Jatim</a>
+                </div>
+                <!-- Navbar Menu -->
+                <div class="">
+                    <ul class="nav-items">
+                        <li class="nav-links">
+                            <a href="">Home</a>
+                        </li>
+                        <li class="nav-links">
+                            <a href="">Blog</a>
+                        </li>
+                        <li class="nav-links">
+                            <a href="">Event</a>
+                        </li>
+                        <li class="nav-links">
+                            <a href="">Destinasi</a>
+                        </li>
+                        <li class="nav-links">
+                            <a href="">About</a>
+                        </li>
+                    </ul>
+                    <!-- Toogle Menu -->
+                    <div class="toggle-collapse">
+                        <div class="toggle-icons">
+                            <i class="fas fa-bars"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- END OF HEADER -->
+    <script>
+        //--- Toggle ---//
+// Without Jquery Class
+document.addEventListener("DOMContentLoaded", function() {
+    const nav = document.querySelector('.nav');
+    const toggleCollapse = document.querySelector('.toggle-collapse');
+
+    // Click event on toggle menu
+    toggleCollapse.addEventListener('click', function() {
+        nav.classList.toggle('collapse'); // Toggle the 'collapse' class
+    });
+ });
+
+    </script>
+
+</body>
+
+</html>
