@@ -15,6 +15,10 @@
     box-sizing: border-box;
 }
 
+body {
+    line-height: 1.5;
+}
+
 a {
     text-decoration: none;
 }
@@ -23,9 +27,15 @@ ul {
     list-style: none;
 }
 
+section {
+    padding: 0 0 10px;
+    /* padding: 50px 20px; */
+}
+
+
 /*--- ROOT ---*/
 :root {
-    
+
     /* Theme Colors */
     --white: #ffffff;
     --navy: #474e93;
@@ -38,7 +48,7 @@ ul {
     --mint: #C0EBA6;
     --white2: #FFFBE6;
     --yellow: #FCCD2A;
-    
+
     /* Fonts  */
     --Dancing: "Dancing Script", serif;
     --Playfair: "Playfair", serif;
@@ -50,7 +60,8 @@ ul {
 /* Navbar */
 .nav {
     background-color: var(--navy);
-    padding: 0 2rem; /*1rem = 16px*/
+    padding: 0 2rem;
+    /*1rem = 16px*/
     height: 0rem;
     min-height: 10vh;
     overflow: hidden;
@@ -79,7 +90,7 @@ ul {
 }
 
 /* Menu List */
-.nav .nav-items  {
+.nav .nav-items {
     display: flex;
     margin: 0;
 }
@@ -104,7 +115,7 @@ ul {
     display: none;
 }
 
-.nav .toggle-collapse .toggle-icons { 
+.nav .toggle-collapse .toggle-icons {
     display: flex;
     justify-content: flex-end;
     padding: 1.7rem 0;
@@ -114,7 +125,7 @@ ul {
     font-size: 1.4rem;
 }
 
-.nav .nav-items ..nav-links:hover {
+.nav .nav-items .nav-links:hover {
     background-color: var(--purple);
 }
 
@@ -122,8 +133,10 @@ ul {
     height: 30rem;
 }
 
+
 /* Breakpoint Responsive Navbar */
 @media screen and (max-width:768px) {
+
     .nav .nav-menu,
     .nav .nav-items {
         flex-direction: column;
@@ -133,3 +146,257 @@ ul {
         display: initial;
     }
 }
+
+
+/* Banner */
+.banner {
+    background-image: url(../assets/images/bromo.jpg);
+    background-color: rgba(0, 0, 0, 0.24);
+    margin: 0 auto;
+    height: 75vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-blend-mode: overlay;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+}
+
+.banner h1 {
+    padding: 16px;
+    font-family: var(--Roboto);
+    font-size: 2em;
+}
+
+.banner p {
+    font-family: var(--Roboto);
+    padding: 16px;
+    font-size: 1.1em;
+}
+
+.banner .btn-banner {
+    margin: 1.8em;
+    border: none;
+    border-radius: 2rem;
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    font-family: var(--Roboto);
+    cursor: pointer;
+    background: var(--navy);
+    color: var(--white);
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.banner .btn-banner:hover {
+    background-color: transparent;
+    border: 1px solid var(--navy);
+    color: var(--white);
+    transform: scale(1.05);
+}
+
+
+/* Responsive Breapoint for Banner */
+@media screen and (max-width:768px) {
+    .banner {
+        height: 80vh;
+    }
+
+    .banner h1 {
+        font-size: 1.7rem;
+        text-align: center;
+    }
+
+    .banner p {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .banner .btn-banner {
+        padding: 0.7rem 2rem;
+    }
+
+}
+
+/*--- MAIN CONTENT ---*/
+
+/* Section Heading */
+.section-heading {
+    font-family: var(--Roboto);
+    color: var(--teal);
+    border-left: 3px solid var(--purple);
+    border-right: 3px solid var(--purple);
+    transition: all 0.4s;
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 30px 4px;
+}
+
+.section-heading:hover {
+    padding: 4px 48px;
+    background-color: var(--navy);
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+
+}
+
+/*-- Blog Section --*/
+
+.blog-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.blog-wrapper .main-content {
+    flex: 3;
+}
+
+/*-- Aside / Sidebar --*/
+.sidebar {
+    flex: 1;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    color: #000;
+    height: auto;
+}
+
+.sidebar h3 {
+    display: flex;
+    margin-bottom: 10px;
+    gap: 10px;
+    padding-bottom: 10px;
+
+}
+
+.sidebar .popular-articles {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar .popular-articles .article {
+    display: flex;
+    align-items: start;
+    gap: 10px;
+
+}
+
+.sidebar .popular-articles .article img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+}
+
+.sidebar .popular-articles .article .article-text {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.sidebar .popular-articles .article .article-text a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.sidebar .popular-articles .article a:hover {
+    color: var(--purple);
+    cursor: pointer;
+
+}
+
+.sidebar .popular-articles .article .article-text p {
+    font-size: .9rem;
+    color: #888;
+}
+
+
+
+/* Card - Content */
+.card {
+    background: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: calc(33.333% - 16px);
+    box-sizing: 0 2px 5px rgba(0, 0, 0, 0, 1);
+    display: flex;
+    flex-direction: column;
+
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 5px 10px;
+}
+
+.card-title {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #333;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    /* Required for line clamping */
+    -webkit-box-orient: vertical;
+    /* Set the orientation to vertical */
+    -webkit-line-clamp: 2;
+    /* Display exactly 2 lines of text */
+    line-clamp: 2;
+    
+}
+
+.card-text {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.card .card-body .date {
+    font-size: .9rem;
+    color: #888;
+    padding: 5px 0;
+    margin: -5px 0 5px;
+
+}
+
+.btn-link {
+    color: #5a67d8;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.btn-link:hover {
+    text-decoration: underline;
+}
+
+
+.card:hover {
+    cursor: pointer;
+    border-color: var(--purple);
+}
+
+
+
