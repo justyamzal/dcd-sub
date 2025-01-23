@@ -314,10 +314,12 @@ section {
     text-decoration: none;
 }
 
-.sidebar .popular-articles .article a:hover ,.sidebar .popular-articles .article img:hover 
+.sidebar .popular-articles .article a:hover ,
+.sidebar .popular-articles .article img:hover 
 {
     border: 1px solid var(--teal); 
-    color: var(--teal);
+    /* color: var(--teal); */
+    color: var(--purple);
     cursor: pointer;
 }
 
@@ -375,7 +377,8 @@ section {
 }
 
 .blog-wrapper .card-title:hover {
-    color: var(--teal);
+    /* color: var(--teal); */
+    color: var(--purple);
 }
 
 .blog-wrapper .card-text {
@@ -412,8 +415,7 @@ section {
 .card .card-body .btn-link i {
     padding: 2px 4px;
     margin: 0 3px;
-    color: #fff;
-    background: var(--purple);
+    /* background: var(--purple); */
     border-radius: 50%;
     font-size: 12px;
 }
