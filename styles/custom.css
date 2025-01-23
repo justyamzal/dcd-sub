@@ -283,7 +283,6 @@ section {
     margin-bottom: 10px;
     gap: 10px;
     padding-bottom: 10px;
-
 }
 
 .sidebar .popular-articles {
@@ -307,7 +306,7 @@ section {
 
 .sidebar .popular-articles .article .article-text {
     flex: 1;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 .sidebar .popular-articles .article .article-text a {
@@ -315,10 +314,12 @@ section {
     text-decoration: none;
 }
 
-.sidebar .popular-articles .article a:hover {
+.sidebar .popular-articles .article a:hover,
+.sidebar .popular-articles .article img:hover 
+{
+    border: 1px solid var(--purple); 
     color: var(--purple);
     cursor: pointer;
-
 }
 
 .sidebar .popular-articles .article .article-text p {
@@ -328,8 +329,8 @@ section {
 
 
 
-/* Card - Content */
-.card {
+/* Blog - Content */
+.blog-wrapper .card {
     background: var(--white);
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -341,17 +342,17 @@ section {
 
 }
 
-.card img {
+.blog-wrapper .card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
 
-.card-body {
+.blog-wrapper .card-body {
     padding: 5px 10px;
 }
 
-.card-title {
+.blog-wrapper .card-title {
     font-size: 1rem;
     margin-bottom: 5px;
     color: #333;
@@ -368,13 +369,13 @@ section {
     
 }
 
-.card-text {
+.blog-wrapper .card-text {
     font-size: 0.9rem;
     margin-bottom: 15px;
     color: #666;
 }
 
-.card .card-body .date {
+.blog-wrapper .card .card-body .date {
     font-size: .9rem;
     color: #888;
     padding: 5px 0;
@@ -388,12 +389,12 @@ section {
     font-size: 0.9rem;
 }
 
-.btn-link:hover {
+.blog-wrapper .btn-link:hover {
     text-decoration: underline;
 }
 
 
-.card:hover {
+.blog-wrapper .card:hover {
     cursor: pointer;
     border-color: var(--purple);
 }
@@ -411,4 +412,57 @@ section {
     transform: rotate(-45deg);
 }
 
+/*--- UPCOMING EVENT ---*/
+.event-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
+}
 
+.event-wrapper .recent-event .event-image img {
+    width: 100%;
+    height: 240px;
+}
+
+.event-wrapper .recent-event:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.event-wrapper .recent-event .event-image { 
+    margin-bottom: -6px;
+    /* position: relative; */
+}
+
+.event-wrapper .recent-event .event-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+.event-wrapper .recent-event { 
+    position: relative;
+}
+
+.event-wrapper .recent-event .event-info h3 {
+    color: var(--white2);
+}
+
+.event-wrapper .recent-event .event-info {
+    position: absolute;
+    bottom: 4%;
+    left: 10px;
+    color: var(--white);
+    z-index: 2;
+    font-family: var(--Playfair);
+}
+
+.event-wrapper .recent-event .event-info .date {
+    color: #ddd;
+}
