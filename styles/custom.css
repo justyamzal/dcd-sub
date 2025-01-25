@@ -145,6 +145,10 @@ section {
     .nav .toggle-collapse {
         display: initial;
     }
+
+    .nav .nav-items .nav-links {
+        padding: 1rem;
+    }
 }
 
 
@@ -201,6 +205,22 @@ section {
 
 
 /* Responsive Breapoint for Banner */
+@media screen and (min-width: 1200px) {
+    .banner h1 {
+        font-size: 2.5rem;
+    }
+
+    .banner p {
+        font-size: 1.2rem;
+    }
+
+    .banner .btn-banner {
+        padding: 1.2rem 4rem;
+        font-size: 1.2rem;
+    }
+
+}
+
 @media screen and (max-width:768px) {
     .banner {
         height: 80vh;
@@ -221,6 +241,28 @@ section {
     }
 
 }
+
+@media screen and (max-width: 480px) {
+    .banner {
+        height: 50vh;
+        padding: 20px 10px;
+    }
+
+    .banner h1 {
+        font-size: 1.2rem;
+        padding: 50px 0 0;
+    }
+
+    .banner p {
+        font-size: 0.8rem;
+    }
+
+    .banner .btn-banner {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.7rem;
+    }
+}
+
 
 /*--- MAIN CONTENT ---*/
 
@@ -245,7 +287,7 @@ section {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    overflow: hiddergr
+    overflow: hidden;
 }
 
 .flex-row {
@@ -262,6 +304,7 @@ section {
     display: flex;
     gap: 20px;
     align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .blog-wrapper .main-content {
@@ -281,9 +324,11 @@ section {
 
 .sidebar h3 {
     display: flex;
+    justify-content: center;
     margin-bottom: 10px;
     gap: 10px;
     padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
 }
 
 .sidebar .popular-articles {
@@ -296,6 +341,7 @@ section {
     display: flex;
     align-items: start;
     gap: 10px;
+    margin: 10px 0;
 
 }
 
@@ -315,8 +361,8 @@ section {
     text-decoration: none;
 }
 
-.sidebar .popular-articles .article a:hover ,
-.sidebar .popular-articles .article img:hover 
+.sidebar .popular-articles .article .article-text a:hover ,
+.sidebar .popular-articles .article a img:hover 
 {
     border: 1px solid var(--teal); 
     /* color: var(--teal); */
@@ -330,8 +376,11 @@ section {
 }
 
 
-
 /* Blog - Content */
+.blog-wrapper .main-content {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 .blog-wrapper .card {
     background: var(--white);
@@ -427,9 +476,65 @@ section {
     /* transform: translateY(-2px);  */
 }
 
-.card .card-body .btn-link i {
-    /* transform: rotate(-45deg); */
+
+
+/* Responsive Breakpoint for Blog */
+@media screen and (max-width: 992px) {
+    .blog-wrapper .flex-row .card {
+        width: 100%;
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+
+    .blog-wrapper {
+        /* display: flex; */
+        flex-direction: column;
+        /* padding: 0 10px; */
+        /* justify-content: center; */
+    }
+
+    .blog-wrapper .flex-row {
+        display: flex;
+        justify-content: center;
+    }
+
+    .sidebar {
+       width: 95%;
+       margin: 10px 20px;
+       flex-direction: column;
+       justify-content: center;
+    }
+
+    .sidebar h3 {
+        /* text-align: center; */
+        display: flex;
+        justify-content: center;
+    }
+
+    .sidebar .popular-articles .article img {
+        width: 200px;
+        height: 150px;
+    }
+
+    .sidebar .popular-articles .article h5 {
+        font-size: 0.9em;
+    }
 }
+
+@media screen and (max-width:768px) {
+
+    .blog-wrapper .flex-row .recent-post { 
+        width: 100%;
+        flex: 1 0 calc(100% - 20px);
+        max-width: calc(100% - 20px);
+        
+    }
+
+    .sidebar {
+        margin-top: 30px;
+    }
+}
+
 
 /*--- UPCOMING EVENT ---*/
 .event-wrapper {
@@ -490,7 +595,6 @@ section {
     text-decoration: none;
     /* color: inherit; */
     color: var(--teal);
-
     
 }
 
@@ -499,9 +603,36 @@ section {
     color: #ddd;
 }
 
-.event-wrapper .card .card-body p span i {
-    /* transform: rotate(-45deg); */
+/* .event-wrapper .card .card-body p span i {
+    transform: rotate(-45deg);
+} */
+
+@media screen and (max-width:968px) {
+    .event-wrapper .recent-event {
+        flex: 1 1 100%;
+        max-width: 70%;
+        height: 280px;
+    }
+
+    .event-wrapper .recent-event .event-image img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+    }
 }
+
+@media screen and (max-width:678px) {
+    .event-wrapper .recent-event {
+        flex: 1 1 100%;
+        max-width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+}
+
+
+
+
 
 
 /*--- DESTINATION ---*/
@@ -524,15 +655,16 @@ section {
   }
   
   /* Destination Wrapper */
-  .destination-container .destination-wrapper {
+
+  /* .destination-container .destination-wrapper {
     width: 100%;
-    position: relative; /*! Required to position buttons */
-  }
+    position: relative;
+  } */
   
   /* Swiper Container */
   .destination-container .swiper {
     width: 100%;
-    padding: 20px 0; /*! Add space for navigation buttons */
+    padding: 20px 0; 
   }
   
   /* Swiper Slide */
@@ -561,7 +693,7 @@ section {
   
   .destination-container .card-link .badge {
     position: absolute;
-    bottom: 10px; /* Default position */
+    bottom: 10px; 
     left: 10px;
     background: var(--lightblue);
     color: var(--navy);
@@ -622,7 +754,7 @@ section {
   
   /* Pagination */
   .swiper-pagination {
-    position: relative; /* Keeps it positioned within the Swiper container */
+    position: relative; 
     margin-top: 20px;
     margin-bottom: 10px;
     display: flex;
